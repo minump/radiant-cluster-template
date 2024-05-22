@@ -1,0 +1,16 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: qdrant-storage
+  namespace: qdrant
+  labels:
+    app: qdrant
+    type: local
+spec:
+  accessModes:
+      - ReadWriteMany
+  capacity:
+    storage: 5Gi
+  storageClassName: manual
+  hostPath:
+    path: "/qdrant/storage"
